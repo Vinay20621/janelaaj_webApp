@@ -1,0 +1,93 @@
+.container {
+    display: flex;
+    height: 100vh;
+    font-family: "Figtree", sans-serif;
+}
+
+.left {
+    width: 50vw;
+    background: #B7A1E2;
+}
+
+.right {
+    width: 50vw;
+    padding: 40px;
+
+}
+
+.logo {
+    border-bottom: 2px solid #FFFFFF;
+    display: flex;
+}
+
+ul {
+    list-style: none;
+}
+
+.formStyle {
+    margin: 90px 60px;
+}
+
+.lable {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.inputFeild {
+    height: 50px;
+    margin-top: 12px;
+    background-color: #F2EFFA;
+    border: 2px solid #F2EFFA;
+    border-radius: 12px;
+    width: 70%;
+    font-size: 24px;
+    padding-left: 12px;
+    outline: none;
+}
+.robotFeild {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    border: 2px solid #F2EFFA;
+    background-color: #F2EFFA;
+    border-radius: 10px;
+    margin-top: 48px;
+    width: fit-content;
+    padding: 20px;
+}
+
+.heading {
+    padding-left: 6px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #282828;
+}
+
+.imagesCapta {
+    height: 40px;
+    width: 40px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 16px 150px 16px 150px;
+    gap: 10px;
+    border-radius: 8px;
+    opacity: 0px;
+    background: #502E7F;
+    font-size: 26px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-left: 120px;
+    cursor: pointer;
+}
+
+.robotFeild input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
+}

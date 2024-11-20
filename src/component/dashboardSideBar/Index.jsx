@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./mystyle.module.css";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { BsGraphUp } from "react-icons/bs";
 import { BsDatabase } from "react-icons/bs";
 import Logo from '../../assets/images/logo.png'
+import { createMenuContex } from "../../contex/MenuContex";
 
-export default function Index({handlePieChart,handleIsCard,isPieChart,isCard}) {
-    const handleOnBoarding=()=>{
-        handleIsCard(true)
-        handlePieChart(false)
-    }
-    const handleAppointment=()=>{
-        handlePieChart(true)
-        handleIsCard(false)
-    }
+export default function Index() {
+    const { selectedMenu,setSelectedMenu} =useContext(createMenuContex)    
   return (
     <div className={styles.sideBar}>
         <div className={styles.logo}>
@@ -27,7 +21,7 @@ export default function Index({handlePieChart,handleIsCard,isPieChart,isCard}) {
         </div>
         <div className={styles.menuList}>
           <ul>
-          <li  className={!isCard ? styles.menuItems : styles.menuSelected}  onClick={()=>handleOnBoarding()}>
+          <li  className={!selectedMenu.includes("onBoarding") ? styles.menuItems : styles.menuSelected}  onClick={()=>setSelectedMenu("onBoarding")}>
           <BsDatabase  style={{
                 marginRight:'8px'
 
@@ -42,15 +36,23 @@ export default function Index({handlePieChart,handleIsCard,isPieChart,isCard}) {
             />
             </li>
             {
-                isCard && 
+                selectedMenu.includes("onBoarding") && 
             <ul  className={styles.subMenu} >
-                <li className={styles.subMenuItems}>All Partners</li>
-                <li className={styles.subMenuItems}>Unverified Partners</li>
-                <li className={styles.subMenuItems}>Verified Partners</li>
+                <li 
+                className={`${styles.subMenuItems} ${
+                    selectedMenu==="onBoarding-all-partner"? styles.blueColor : styles.blackColor
+                  }`}
+                 onClick={()=>setSelectedMenu('onBoarding-all-partner')}>All Partners</li>
+                <li  className={`${styles.subMenuItems} ${
+                    selectedMenu==="onBoarding-verified-partner"? styles.blueColor : styles.blackColor
+                  }`} onClick={()=>setSelectedMenu('onBoarding-verified-partner')}>Verified Partners</li>
+                <li  className={`${styles.subMenuItems} ${
+                    selectedMenu==="onBoarding-unverified-partner"? styles.blueColor : styles.blackColor
+                  }`} onClick={()=>setSelectedMenu('onBoarding-unverified-partner')}>Unverified Partners</li>
 
             </ul>
             }
-            <li  className={!isPieChart ? styles.menuItems : styles.menuSelected}  onClick={()=>handleAppointment()}>
+            <li  className={!selectedMenu.includes("appointment") ? styles.menuItems : styles.menuSelected} onClick={()=>setSelectedMenu("appointment")}>
             <BsDatabase  style={{
                 marginRight:'8px'
 
@@ -64,7 +66,7 @@ export default function Index({handlePieChart,handleIsCard,isPieChart,isCard}) {
             }}/>
             </li>
             {
-                isPieChart && 
+               selectedMenu.includes("appointment") && 
             <ul  className={styles.subMenu} >
                 <li className={styles.subMenuItems}>Appointment Booked</li>
                 <li className={styles.subMenuItems}>Feedback</li>

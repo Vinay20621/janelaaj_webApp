@@ -47,14 +47,27 @@ ul{
 
 }
 .subMenu{
-    margin: 10px;
+    margin: 16px;
     background-color: #E8E8E8;
+    border: 2px solid transparent;
+    border-radius: 5px;
+
 }
 .subMenuItems{
     margin-top: 4px;
     border-bottom: 2px solid #FFFFFF;
     padding: 8px;
+    font-size: 16px;
     font-weight: 500;
+    line-height: 21.6px;
     color: #000000;
+    cursor: pointer;
+}
+.blackColor{
+    color: #000000;
+
+}
+.blueColor{
+    color: #502E7F;
 
 }
